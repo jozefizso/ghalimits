@@ -1,0 +1,54 @@
+name: 'step-summary'
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  summary-mini:
+    name: small
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: step-summary-mini
+        run:
+          cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 1 >> $GITHUB_STEP_SUMMARY
+
+  summary-small:
+    name: small
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: step-summary-small
+        run:
+          cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 10 >> $GITHUB_STEP_SUMMARY
+
+  summary-65535:
+    name: small
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: step-summary-65535
+        run:
+          cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 65535 >> $GITHUB_STEP_SUMMARY
+
+  summary-limit:
+    name: small
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: step-summary-limit
+        run:
+          cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 64 >> $GITHUB_STEP_SUMMARY
