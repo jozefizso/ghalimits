@@ -17,38 +17,38 @@ jobs:
         run:
           head -65536 /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 1 >> $GITHUB_STEP_SUMMARY
 
-  # summary-small:
-  #   name: small
+  summary-small:
+    name: small
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
-  #   steps:
-  #     - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
       
-  #     - name: step-summary-small
-  #       run:
-  #         cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 10 >> $GITHUB_STEP_SUMMARY
+      - name: step-summary-small
+        run:
+          head -65536 /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 10 >> $GITHUB_STEP_SUMMARY
 
-  # summary-65535:
-  #   name: 65535
+  summary-65535:
+    name: 65535
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
-  #   steps:
-  #     - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
       
-  #     - name: step-summary-65535
-  #       run:
-  #         cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 65535 >> $GITHUB_STEP_SUMMARY
+      - name: step-summary-65535
+        run:
+          head -65536 /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 65535 | head -n 1 >> $GITHUB_STEP_SUMMARY
 
-  # summary-limit:
-  #   name: limit
+  summary-limit:
+    name: limit
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
-  #   steps:
-  #     - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
       
-  #     - name: step-summary-limit
-  #       run:
-  #         cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 64 >> $GITHUB_STEP_SUMMARY
+      - name: step-summary-limit
+        run:
+          head -65536 /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 1024 | head -n 64 >> $GITHUB_STEP_SUMMARY
