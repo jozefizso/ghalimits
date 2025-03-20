@@ -12,6 +12,9 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
+
+      - name: env
+        run: echo "${{ env }}"
       
       - name: step-summary-mini
         run:
